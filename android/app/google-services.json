@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "64175056752",
+    "project_id": "ninja-study-5eef6",
+    "storage_bucket": "ninja-study-5eef6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64175056752:android:e9dbfc9108078fbaaa11b5",
+        "android_client_info": {
+          "package_name": "com.example.ninja_study"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "64175056752-3vgcaghicvh78b0ljb9955fehf10nljp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0aD0ezOndmSruy-pcddeT8uuFyoUZ7Q4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "64175056752-3vgcaghicvh78b0ljb9955fehf10nljp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
