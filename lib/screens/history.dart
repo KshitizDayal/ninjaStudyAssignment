@@ -67,10 +67,12 @@ class _HistoryState extends State<History> {
                       sendtochatscreen(chatData[i]['randomid'],
                           chatData[i]['userid'], chatData[i]['chatid']);
                     }),
-                    child: ListTile(
-                      title: Text(
-                        '$name1 started chat with $name2',
-                        style: const TextStyle(fontWeight: FontWeight.w500),
+                    child: Card(
+                      child: ListTile(
+                        title: Text(
+                          '$name1 started chat with $name2',
+                          style: const TextStyle(fontWeight: FontWeight.w500),
+                        ),
                       ),
                     ),
                   );
