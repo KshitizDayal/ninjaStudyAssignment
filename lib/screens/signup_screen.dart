@@ -44,13 +44,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if (res != 'success') {
       showSnackBar(res, context);
     } else {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) {
-            return const HomePage();
-          },
-        ),
-      );
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
+        builder: (context) {
+          return const HomePage();
+        },
+      ), (Route<dynamic> route) => false);
     }
   }
 
@@ -110,7 +108,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         color: Colors.purple,
                       ),
-                      child: const Text('Sign Up'),
+                      child: const Text(
+                        'Sign Up',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
             ),
             const SizedBox(height: 12),

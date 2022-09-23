@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:ninja_study/api/speech_api.dart';
+import 'package:ninja_study/api/speech_to_text.dart';
 import 'package:ninja_study/resources/firebase_methods.dart';
 import 'package:ninja_study/utility/utils.dart';
 import 'package:ninja_study/widgets/message_display.dart';
@@ -80,7 +80,6 @@ class _ChatScreenState extends State<ChatScreen> {
         sameuser = true;
       });
     }
-    print(qwerty);
   }
 
   Future toggleRecording() => SpeechApi.toggleRecording(
@@ -93,10 +92,12 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print(isMe);
     return Scaffold(
       appBar: AppBar(
-        title: Text('$username started chat with $randomUsername'),
+        title: Text(
+          '$username started chat with $randomUsername',
+          style: const TextStyle(fontSize: 18),
+        ),
       ),
       body: SingleChildScrollView(
         reverse: true,
@@ -129,7 +130,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           return MessageDisplay(chatMap: chatMap);
                         });
                   }
-                  return SizedBox();
+                  return const SizedBox();
                 },
               ),
             ),
@@ -143,7 +144,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     height: MediaQuery.of(context).size.height * .08,
                     decoration: BoxDecoration(
                       color: Colors.grey.shade200,
-                      borderRadius: BorderRadius.all(
+                      borderRadius: const BorderRadius.all(
                         Radius.circular(12),
                       ),
                     ),
@@ -161,7 +162,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   IconButton(
                     onPressed: sendChat,
-                    icon: Icon(Icons.send),
+                    icon: const Icon(Icons.send),
                   )
                 ],
               ),

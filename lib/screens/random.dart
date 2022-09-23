@@ -28,7 +28,7 @@ class _RandomTalkState extends State<RandomTalk> {
       isLoading = true;
     });
     randomid = await CallingFunction().randomUserId();
-    var chatid = Uuid().v4();
+    var chatid = const Uuid().v4();
 
     String randomUsername = await FireBaseMethods().getName(randomid);
     String name =
@@ -56,9 +56,6 @@ class _RandomTalkState extends State<RandomTalk> {
     setState(() {
       isLoading = false;
     });
-
-    print(FirebaseAuth.instance.currentUser!.uid);
-    print(randomid);
   }
 
   @override

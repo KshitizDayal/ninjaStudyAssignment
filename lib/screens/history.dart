@@ -19,18 +19,17 @@ class _HistoryState extends State<History> {
 
   @override
   void initState() {
-    chatList();
-
     super.initState();
+    chatList();
   }
 
-  bool isLoading2 = true;
+  bool isLoading = true;
 
   void chatList() async {
     chatData = await FireBaseMethods()
         .showChats(userId: FirebaseAuth.instance.currentUser!.uid);
     setState(() {
-      isLoading2 = false;
+      isLoading = false;
     });
   }
 
@@ -51,39 +50,38 @@ class _HistoryState extends State<History> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: isLoading2
+      body: isLoading
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : ListView.builder(
-              itemCount: chatData.length,
-              itemBuilder: (context, i) {
-                if (chatData.isNotEmpty) {
-                  var name1 = chatData[i]['ChatStarted'];
-                  var name2 = chatData[i]['ChatReceived'];
+          : chatData.isNotEmpty
+              ? ListView.builder(
+                  itemCount: chatData.length,
+                  itemBuilder: (context, i) {
+                    var name1 = chatData[i]['ChatStarted'];
+                    var name2 = chatData[i]['ChatReceived'];
 
-                  return InkWell(
-                    onTap: (() {
-                      sendtochatscreen(chatData[i]['randomid'],
-                          chatData[i]['userid'], chatData[i]['chatid']);
-                    }),
-                    child: Card(
-                      child: ListTile(
-                        title: Text(
-                          '$name1 started chat with $name2',
-                          style: const TextStyle(fontWeight: FontWeight.w500),
+                    return InkWell(
+                      onTap: (() {
+                        sendtochatscreen(chatData[i]['randomid'],
+                            chatData[i]['userid'], chatData[i]['chatid']);
+                      }),
+                      child: Card(
+                        child: ListTile(
+                          title: Text(
+                            '$name1 started chat with $name2',
+                            style: const TextStyle(fontWeight: FontWeight.w500),
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                }
-                return const Center(
+                    );
+                  })
+              : const Center(
                   child: Text(
                     "no history to show",
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
                   ),
-                );
-              }),
+                ),
     );
   }
 }

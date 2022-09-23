@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
+
 import 'package:ninja_study/screens/homepage.dart';
 import 'package:ninja_study/screens/login_screen.dart';
 

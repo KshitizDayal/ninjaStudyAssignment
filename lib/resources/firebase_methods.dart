@@ -23,7 +23,7 @@ class FireBaseMethods {
 
   Future<String> getName(String uid) async {
     String name = "";
-    var userList = [];
+
     try {
       await _firestore
           .collection('users')

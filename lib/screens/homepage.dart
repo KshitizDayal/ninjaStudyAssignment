@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: logOut,
-            icon: Icon(Icons.logout_outlined),
+            icon: const Icon(Icons.logout_outlined),
           ),
         ],
       ),
